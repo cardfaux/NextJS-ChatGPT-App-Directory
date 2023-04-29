@@ -11,6 +11,7 @@ type MessageItem = {
 type PromptState = {
   messages: MessageItem[];
   addMessage: (message: MessageItem) => void;
+  clearMessages: () => void;
 };
 
 export const usePromptStore = create<PromptState>()(
@@ -23,6 +24,7 @@ export const usePromptStore = create<PromptState>()(
             messages: [...state.messages, message],
           };
         }),
+      clearMessages: () => set({ messages: [] }),
     }),
     { name: 'prompt-store' }
   )

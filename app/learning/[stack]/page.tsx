@@ -19,11 +19,8 @@ export default async function Stack({ params }: { params: { stack: string } }) {
 
       <hr className='my-4' />
 
-      {/* <div className='chat flex flex-col h-full overflow-scroll'>
-        <Message />
-      </div> */}
       <Message />
-      <div className='flex p-4'>
+      <div className='flex'>
         <Prompt />
       </div>
     </div>

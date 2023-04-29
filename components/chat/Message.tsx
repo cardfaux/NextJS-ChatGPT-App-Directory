@@ -2,8 +2,13 @@
 
 import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { usePromptStore } from '@/zustand/store';
+
+const SyntaxHighlighterTypescript = SyntaxHighlighter as any;
 
 export default function Message() {
   const promptStore = usePromptStore();
@@ -26,7 +31,25 @@ export default function Message() {
             <div className='w-[30px] relative mr-4'>
               <Image src={message.avatar} width={30} height={30} alt='' />
             </div>
-            <div className='w-full'>{message.text}</div>
+            <ReactMarkdown
+              className='w-full'
+              components={{
+                code({ inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  return !inline && match ? (
+                    <SyntaxHighlighterTypescript language={match[1]} PreTag='div' {...props} style={dracula}>
+                      {children}
+                    </SyntaxHighlighterTypescript>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            >
+              {message.text}
+            </ReactMarkdown>
           </div>
         );
       })}

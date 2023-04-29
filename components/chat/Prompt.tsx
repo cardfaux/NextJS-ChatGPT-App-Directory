@@ -43,7 +43,7 @@ export default function Prompt() {
   };
 
   return (
-    <>
+    <div className='flex flex-col items-center w-full'>
       <textarea
         onChange={(e) => setPromptInput(e.target.value)}
         onKeyDown={(e) => {
@@ -58,6 +58,12 @@ export default function Prompt() {
         placeholder='Write your prompt there...'
         value={promptInput}
       />
-    </>
+      <button
+        className='w-full bg-red-400 text-white rounded-lg border-gray-300 text-sm py-2.5 mt-2'
+        onClick={promptStore.clearMessages}
+      >
+        Clear Messages
+      </button>
+    </div>
   );
 }
