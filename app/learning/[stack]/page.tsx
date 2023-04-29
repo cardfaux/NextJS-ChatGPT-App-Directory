@@ -19,11 +19,10 @@ export default async function Stack({ params }: { params: { stack: string } }) {
 
       <hr className='my-4' />
 
-      <div className='chat flex flex-col h-full overflow-scroll'>
-        {/* <Message author='human' idx={0} avatar='https://thrangra.sirv.com/Avatar2.png' text='What is React JS?' />
-        <Message author='human' idx={1} avatar='/logo-open-ai.png' text='React JS is a library for creating UIs...' /> */}
+      {/* <div className='chat flex flex-col h-full overflow-scroll'>
         <Message />
-      </div>
+      </div> */}
+      <Message />
       <div className='flex p-4'>
         <Prompt />
       </div>
