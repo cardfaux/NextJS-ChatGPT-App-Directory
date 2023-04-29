@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import Header from '@/components/chat/Header';
 import Message from '@/components/chat/Message';
 import Prompt from '@/components/chat/Prompt';
@@ -22,7 +20,8 @@ export default async function Stack({ params }: { params: { stack: string } }) {
       <hr className='my-4' />
 
       <div className='chat flex flex-col h-full overflow-scroll'>
-        <Message />
+        <Message idx={0} avatar='https://thrangra.sirv.com/Avatar2.png' text='What is React JS?' />
+        <Message idx={1} avatar='/logo-open-ai.png' text='React JS is a library for creating UIs...' />
       </div>
       <div className='flex p-4'>
         <Prompt />
