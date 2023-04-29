@@ -9,7 +9,7 @@ export default function Prompt() {
 
   const promptStore = usePromptStore();
 
-  const onSubmit = (prompt: string) => {
+  const onSubmit = async (prompt: string) => {
     if (prompt.trim().length === 0) {
       return;
     }
@@ -20,6 +20,26 @@ export default function Prompt() {
       avatar: 'https://thrangra.sirv.com/Avatar2.png',
       text: prompt,
     });
+
+    const response = await fetch(`/api/completion`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ prompt }),
+    });
+    const json = await response.json();
+
+    if (response.ok) {
+      promptStore.addMessage({
+        id: new Date().toISOString(),
+        author: 'ai',
+        avatar: '/logo-open-ai.png',
+        text: json.result,
+      });
+    } else {
+      console.error(json?.error?.message);
+    }
   };
 
   return (
