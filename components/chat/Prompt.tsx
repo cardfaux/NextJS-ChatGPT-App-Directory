@@ -20,8 +20,6 @@ export default function Prompt() {
       avatar: 'https://thrangra.sirv.com/Avatar2.png',
       text: prompt,
     });
-
-    alert(prompt);
   };
 
   return (
