@@ -2,7 +2,19 @@
 
 import Image from 'next/image';
 
-export default function Message({ text, avatar, idx }: { text: string; avatar: string; idx: number }) {
+import { usePromptStore } from '@/zustand/store';
+
+function MessageComponent({
+  text,
+  avatar,
+  idx,
+  author,
+}: {
+  text: string;
+  avatar: string;
+  idx: number;
+  author: string;
+}) {
   const bgColorClass = idx % 2 === 0 ? 'bg-slate-100' : 'bg-slate-200';
 
   return (
@@ -12,5 +24,23 @@ export default function Message({ text, avatar, idx }: { text: string; avatar: s
       </div>
       <div className='w-full'>{text}</div>
     </div>
+  );
+}
+
+export function Message() {
+  const promptStore = usePromptStore();
+
+  return (
+    <>
+      {promptStore.messages.map((message, index) => {
+        <MessageComponent
+          key={message.id}
+          author={message.author}
+          idx={index}
+          avatar={message.avatar}
+          text={message.text}
+        />;
+      })}
+    </>
   );
 }
