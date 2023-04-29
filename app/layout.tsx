@@ -1,6 +1,8 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 
+import Hydrate from '@/components/utils/Hydrate';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -11,9 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
-        <div className='h-full max-w-5xl mx-auto pt-10'>{children}</div>
-      </body>
+      <Hydrate>{children}</Hydrate>
     </html>
   );
 }

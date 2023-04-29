@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 export default function Message({ text, avatar, idx }: { text: string; avatar: string; idx: number }) {
