@@ -1,7 +1,7 @@
 {
   "apple": {
     "href": "/learning/apple",
-    "logo": "/apple-logo.png",
+    "logo": "/images/apple-stars-logo.png",
     "info": "Apple Inc. is a technology company that produces a range of popular devices, including iPhone's, iPad's watches and more",
     "docs": ["https://www.verizon.com/smartphones/apple/"],
     "name": "Apple",
@@ -9,7 +9,7 @@
   },
   "samsung": {
     "href": "/learning/samsung",
-    "logo": "/samsung-logo.png",
+    "logo": "/images/samsung-browser-logo.png",
     "info": "Samsung is a technology company that produces a wide range of devices, including: Galaxy smartphones: Samsung's flagship smartphones that run on Android operating system.",
     "docs": ["https://www.verizon.com/smartphones/samsung/"],
     "name": "Samsung",
@@ -18,7 +18,7 @@
 
   "motorola": {
     "href": "/learning/motorola",
-    "logo": "/moto-logo.png",
+    "logo": "/images/motorola-logo.png",
     "info": "Motorola is a technology company that produces a range of devices, including: Moto smartphones: Motorola's flagship smartphones that run on Android operating system. They are known for their long battery life, affordability, and near-stock Android experience. Moto Mods: Motorola's modular accessories that can be attached to Moto smartphones to add additional functionality.",
     "docs": ["https://www.verizon.com/smartphones/motorola/"],
     "name": "Motorola",
