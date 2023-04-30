@@ -11,9 +11,7 @@ const SESSION_KEYS = [
 ];
 
 async function getStacks() {
-  const res = await fetch(`${process.env.BASE_URL}/api/get-stacks`, {
-    cache: 'force-cache',
-  });
+  const res = await fetch(`${process.env.BASE_URL}/api/get-stacks`);
   const stacks = await res.json();
   return stacks;
 }
