@@ -16,7 +16,8 @@ if (!cached) {
 export async function dbConnect() {
   if (!cached.conn) {
     const adapter = new JSONFile(file);
-    const db = new Low(adapter);
+    const defaultData = { messageHistory: {} };
+    const db = new Low(adapter, defaultData);
     cached.conn = db;
   }
 
