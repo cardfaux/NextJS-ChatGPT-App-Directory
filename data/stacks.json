@@ -1,27 +1,27 @@
 {
-  "react": {
-    "href": "/learning/react",
-    "logo": "/react-logo.png",
-    "info": "React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes. Build encapsulated components that manage their own state, then compose them to make complex UIs.",
-    "docs": ["https://react.dev/"],
-    "name": "React JS",
+  "apple": {
+    "href": "/learning/apple",
+    "logo": "/apple-logo.png",
+    "info": "Apple Inc. is a technology company that produces a range of popular devices, including iPhone's, iPad's watches and more",
+    "docs": ["https://www.verizon.com/smartphones/apple/"],
+    "name": "Apple",
     "hoverClass": "hover:border-blue-300"
   },
-  "vue": {
-    "href": "/learning/vue",
-    "logo": "/vue-logo.png",
-    "info": "Vue (pronounced /vjuː/, like view) is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative and component-based programming model that helps you efficiently develop user interfaces, be they simple or complex.",
-    "docs": ["https://vuejs.org/"],
-    "name": "Vue JS",
+  "samsung": {
+    "href": "/learning/samsung",
+    "logo": "/samsung-logo.png",
+    "info": "Samsung is a technology company that produces a wide range of devices, including: Galaxy smartphones: Samsung's flagship smartphones that run on Android operating system.",
+    "docs": ["https://www.verizon.com/smartphones/samsung/"],
+    "name": "Samsung",
     "hoverClass": "hover:border-green-500"
   },
 
-  "svelte": {
-    "href": "/learning/svelte",
-    "logo": "/svelte-logo.png",
-    "info": "Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when you build your app. Instead of using techniques like virtual DOM diffing, Svelte writes code that surgically updates the DOM when the state of your app changes.",
-    "docs": ["https://svelte.dev/"],
-    "name": "Svelte",
+  "motorola": {
+    "href": "/learning/motorola",
+    "logo": "/moto-logo.png",
+    "info": "Motorola is a technology company that produces a range of devices, including: Moto smartphones: Motorola's flagship smartphones that run on Android operating system. They are known for their long battery life, affordability, and near-stock Android experience. Moto Mods: Motorola's modular accessories that can be attached to Moto smartphones to add additional functionality.",
+    "docs": ["https://www.verizon.com/smartphones/motorola/"],
+    "name": "Motorola",
     "hoverClass": "hover:border-red-500"
   }
 }
