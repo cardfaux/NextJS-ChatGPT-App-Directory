@@ -7,7 +7,7 @@ export default function useUser() {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch('/api/user');
+      const res = await fetch('/api/user', {});
       const data = await res.json();
       setUser(data);
     };

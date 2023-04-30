@@ -10,11 +10,20 @@ import { usePromptStore } from '@/zustand/store';
 
 const SyntaxHighlighterTypescript = SyntaxHighlighter as any;
 
-export default function Message() {
+export default function Message({ params }: { params: { stack: string } }) {
+  console.log(params);
   const promptStore = usePromptStore();
-  const [text, setText] = useState('');
 
   const chatRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cleanChatHistory = async () => {
+      await fetch('/api/completion', { method: 'DELETE' });
+    };
+
+    cleanChatHistory();
+    promptStore.clearMessages();
+  }, []);
 
   useEffect(() => {
     if (chatRef.current) {
@@ -24,6 +33,11 @@ export default function Message() {
 
   return (
     <div ref={chatRef} className='chat flex flex-col h-full overflow-scroll'>
+      {promptStore.messages.length === 0 && (
+        <div className='bg-yellow-200 p-4 rounded-2xl'>
+          <h1>No Messages Yet. Ask Me Something about {params.stack.toUpperCase()}</h1>
+        </div>
+      )}
       {promptStore.messages.map((message, index) => {
         const bgColorClass = index % 2 === 0 ? 'bg-slate-100' : 'bg-slate-200';
         return (

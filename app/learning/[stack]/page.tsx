@@ -11,9 +11,10 @@ const SESSION_KEYS = [
 ];
 
 async function getStacks() {
-  const res = await fetch(`${process.env.BASE_URL}/api/get-stacks`);
+  const res = await fetch(`${process.env.BASE_URL}/api/get-stacks`, {
+    cache: 'force-cache',
+  });
   const stacks = await res.json();
-
   return stacks;
 }
 
@@ -29,9 +30,9 @@ export default async function Stack({ params }: { params: { stack: string } }) {
 
       <hr className='my-4' />
 
-      <Message />
+      <Message params={params} />
       <div className='flex'>
-        <Prompt />
+        <Prompt stackKey={params.stack} />
       </div>
     </div>
   );

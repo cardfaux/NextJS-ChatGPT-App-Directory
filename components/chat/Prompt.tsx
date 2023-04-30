@@ -3,8 +3,9 @@
 import { useState } from 'react';
 
 import { usePromptStore } from '@/zustand/store';
+import Stack from '@/app/learning/[stack]/page';
 
-export default function Prompt() {
+export default function Prompt({ stackKey }: { stackKey: string }) {
   const [promptInput, setPromptInput] = useState('');
 
   const promptStore = usePromptStore();
@@ -21,7 +22,7 @@ export default function Prompt() {
       text: prompt,
     });
 
-    const response = await fetch(`/api/completion`, {
+    const response = await fetch(`/api/completion?stack=${stackKey}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
