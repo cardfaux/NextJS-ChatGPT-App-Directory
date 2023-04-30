@@ -19,7 +19,7 @@
   "motorola": {
     "href": "/learning/motorola",
     "logo": "/images/motorola-logo.png",
-    "info": "Motorola is a technology company that produces a range of devices, including: Moto smartphones: Motorola's flagship smartphones that run on Android operating system. They are known for their long battery life, affordability, and near-stock Android experience. Moto Mods: Motorola's modular accessories that can be attached to Moto smartphones to add additional functionality.",
+    "info": "Motorola is a technology company that produces a range of devices, including: Moto smartphones: Motorola's flagship smartphones that run on Android operating system.",
     "docs": ["https://www.verizon.com/smartphones/motorola/"],
     "name": "Motorola",
     "hoverClass": "hover:border-red-500"

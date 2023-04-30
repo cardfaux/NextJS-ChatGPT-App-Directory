@@ -41,7 +41,9 @@ export default function SessionSelect() {
   return (
     <>
       <div className='mt-4'>Active Session: {activeSession}</div>
-      {activeSession === '' && <div className='bg-yellow-200 p-4 rounded-2xl'>choose a session</div>}
+      {activeSession === '' && (
+        <div className='bg-red-500 p-4 rounded-2xl'>choose a session from dropdown below 👇</div>
+      )}
       <div className='mt-4'>UID: {user?.uid}</div>
       <select
         onChange={handleSessionChange}

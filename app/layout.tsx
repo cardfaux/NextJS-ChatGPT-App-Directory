@@ -6,8 +6,8 @@ import Hydrate from '@/components/utils/Hydrate';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'chatGPT App | NextJS',
-  description: 'An app I am building to use chatGPT with NextJS',
+  title: 'Ask about Apple, Samsung, Motorola, and more!',
+  description: 'Ask me questions about Apple, Samsung, Motorola, and more!',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
