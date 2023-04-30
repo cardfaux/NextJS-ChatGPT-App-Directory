@@ -46,9 +46,8 @@ export default withNextSession(async (req: NextApiRequest, res: NextApiResponse)
 
     try {
       const db = await dbConnect();
-      await db.read();
 
-      db.data || { messageHistory: {} };
+      //db.data || { messageHistory: {} };
 
       db.data.messageHistory[user.uid] ||= [];
       db.data.messageHistory[user.uid].push(`${USER_NAME}: ${prompt}\n`);
@@ -69,8 +68,6 @@ export default withNextSession(async (req: NextApiRequest, res: NextApiResponse)
       if (db.data.messageHistory[user.uid].length > MEMORY_SIZE) {
         db.data.messageHistory[user.uid].splice(0, 2);
       }
-
-      await db.write();
 
       return res.status(200).json({ result: aiResponse });
     } catch (error) {
@@ -101,7 +98,6 @@ export default withNextSession(async (req: NextApiRequest, res: NextApiResponse)
     if (user) {
       const db = await dbConnect();
       db.data.messageHistory[user.uid] = [];
-      await db.write();
 
       return res.status(200).json({ message: 'History cleared!' });
     }

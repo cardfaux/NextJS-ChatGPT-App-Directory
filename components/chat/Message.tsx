@@ -11,7 +11,6 @@ import { usePromptStore } from '@/zustand/store';
 const SyntaxHighlighterTypescript = SyntaxHighlighter as any;
 
 export default function Message({ params }: { params: { stack: string } }) {
-  console.log(params);
   const promptStore = usePromptStore();
 
   const chatRef = useRef<HTMLDivElement>(null);
