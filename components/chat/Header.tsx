@@ -9,6 +9,7 @@ export default function Header({
   stack: { logo: string; info: string };
   params: { stack: string };
 }) {
+  console.log(stack.logo);
   return (
     <div className='header flex bg-slate-200 p-4 rounded-2xl'>
       <div className='flex mr-4 justify-center items-center'>
