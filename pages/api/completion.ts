@@ -15,8 +15,17 @@ export default withNextSession(async (req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const body = req.body;
     const prompt = body.prompt || '';
+    const { user } = req.session;
 
-    console.log('SESSION: ' + req.session);
+    if (!configuration.apiKey) {
+      return res.status(500).json({ error: { message: 'OpenAi Api Key is missing!' } });
+    }
+
+    if (!user) {
+      return res.status(500).json({ error: { message: 'Session is missing!' } });
+    }
+
+    console.log(user.uid + ' wants to get some answers!');
 
     await new Promise((res) => setTimeout(res, 500));
     return res.status(200).json({ result: AI_RESPONSE });

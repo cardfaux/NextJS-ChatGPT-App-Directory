@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import useUser from '@/hooks/useUser';
 
 const SESSION_KEYS = [
   'u1-2023-04-29T23:05:00.252Z',
@@ -11,6 +12,14 @@ const SESSION_KEYS = [
 
 export default function SessionSelect() {
   const [activeSession, setActiveSession] = useState('');
+  const [userSessionUID, setUserSessionUID] = useState('');
+  const { user }: any = useUser();
+
+  useEffect(() => {
+    if (user) {
+      setActiveSession(user.uid);
+    }
+  }, [user]);
 
   const handleSessionChange = async (event: any) => {
     const session = event.target.value;
@@ -32,13 +41,17 @@ export default function SessionSelect() {
   return (
     <>
       <div className='mt-4'>Active Session: {activeSession}</div>
+      <div className='mt-4'>UID: {user?.uid}</div>
       <select
         onChange={handleSessionChange}
+        value={activeSession}
         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-[200px] p-2.5 mt-5'
         name=''
         id=''
       >
-        <option value={''}>Choose Session</option>
+        <option value={''} disabled={activeSession !== ''}>
+          Choose Session
+        </option>
         {SESSION_KEYS.map((sessionKey) => {
           return (
             <option key={sessionKey} value={sessionKey}>
